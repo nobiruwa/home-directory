@@ -8,7 +8,14 @@
 !.profile
 !.Xresources
 !.xsession
+
 !.config/user-dirs.dirs
+
 !bin
 !bin/emacs-urxvt
 !bin/jshint-curl
+
+!misc
+!misc/noflo.git
+!misc/noflo.git/**
+!misc/noflo.git/**/*
