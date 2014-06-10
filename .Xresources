@@ -1,0 +1,12 @@
+!Font DPI is constant with this display resolution.
+Xft.dpi: 96
+Emacs*useXIM: false
+Emacs.toolBar: 0
+Emacs.geometry: 80x32-0+0
+Emacs.font: VL Gothic-15
+XTerm*font: -efont-fixed-medium-r-normal-*-14-*-*-*-c-*-iso10646-1
+XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
+
+URxvt.font: xft:VL Gothic:pixelsize=24
+URxvt.imFont: xft:VL Gothic:pixelsize=24
+URxvt.inputMethod: none

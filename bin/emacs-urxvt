@@ -1,0 +1,1 @@
+urxvt +sb ++iso14755 ++iso14755_52 -e emacs -nw $*
