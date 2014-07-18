@@ -10,6 +10,8 @@ XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
 URxvt.font: xft:VL Gothic:pixelsize=18
 URxvt.imFont: xft:VL Gothic:pixelsize=18
 URxvt.inputMethod: none
+URxvt.iso14755: false
+URxvt.iso14755_2: false
 
 ! Zenburn theme
 URxvt*foreground: #dcdccc
