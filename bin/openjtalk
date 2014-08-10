@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+# -*-  mode:python; coding:utf-8; -*-
+
+HTSVOICE_MAN = ('$HOME/downloads/openjtalk/'
+                + 'hts_voice_nitech_jp_atr503_m001-1.05/'
+                + 'nitech_jp_atr503_m001.htsvoice')
+
+HTSVOICE_WOMAN_TEMPLATE = ('$HOME/downloads/openjtalk/'
+                           + 'MMDAgent_Example-1.4/Voice/mei'
+                           + '/mei_{0}.htsvoice')
+
+
+class CommandLineParser:
+    def parse_arguments(self):
+        import argparse
+        parser = argparse.ArgumentParser(description='Open JTalk wrapper')
+        parser.add_argument('--sex', dest='sex',
+                            choices=['man', 'woman'],
+                            default='woman',
+                            help='voice type')
+        parser.add_argument('--output', dest='output',
+                            default='/tmp/openjtalk.wav',
+                            help='output file')
+        parser.add_argument('--feeling', dest='feeling',
+                            choices=['normal', 'angry',
+                                     'bashful', 'happy', 'sad'],
+                            default='normal',
+                            help='feeling (it works only for woman voice)')
+        parser.add_argument('--play', action='store_true',
+                            help='play output')
+        parser.add_argument('FILE', help='input file')
+
+        return parser.parse_args()
+
+
+class OpenJTalkRunner:
+    def __init__(self, args):
+        self.args = self.extend_arguments(args)
+
+    def run(self):
+        cmd = self.create_command_line(self.args)
+        status = self.call(cmd)
+        return status
+
+    def extend_arguments(self, args):
+        if args.sex is 'man':
+            htsvoice = ('$HOME/downloads/openjtalk/'
+                        + 'hts_voice_nitech_jp_atr503_m001-1.05/'
+                        + 'nitech_jp_atr503_m001.htsvoice')
+        elif args.sex is 'woman':
+            htsvoice = HTSVOICE_WOMAN_TEMPLATE.format(args.feeling)
+
+        dic = '/usr/local/dic'
+        args.htsvoice = htsvoice
+        args.dic = dic
+        return args
+
+    def create_command_line(self, args):
+        template = 'open_jtalk -m "{0}" -x "{1}" -ow "{2}" "{3}"'
+        cmd = template.format(args.htsvoice, args.dic, args.output, args.FILE)
+        return cmd
+
+    def call(self, cmd):
+        import subprocess
+        status = subprocess.call(cmd, shell=True)
+        return status
+
+
+class PlayerRunner:
+    def __init__(self, args):
+        self.args = args
+
+    def run(self):
+        if self.args.play:
+            cmd = self.create_command_line(self.args)
+            self.call(cmd)
+
+    def create_command_line(self, args):
+        template = 'aplay {0}'
+        cmd = template.format(args.output)
+        return cmd
+
+    def call(self, cmd):
+        import subprocess
+        subprocess.call(cmd, shell=True)
+
+
+if __name__ == '__main__':
+    args = CommandLineParser().parse_arguments()
+    status = OpenJTalkRunner(args).run()
+    if status == 0:
+        PlayerRunner(args).run()
