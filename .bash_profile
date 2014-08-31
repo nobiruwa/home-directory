@@ -10,9 +10,16 @@ if [ -d ~/bin ] ; then
     export PATH
 fi
 
-#android sdk setting
-if [ -d $HOME/android-sdk-linux ] ; then
-	export PATH=$PATH:$HOME/android-sdk-linux/platform-tools:$HOME/android-sdk-linux/tools
+# Node.js setting
+NPMBIN=$HOME/.node/bin
+if [ -d $NPMBIN ] ; then
+    export PATH=$PATH:$NPMBIN
+fi
+
+# android sdk setting
+ANDROID_HOME=$HOME/opt/android-sdk-linux
+if [ -d $ANDROID_HOME ] ; then
+	export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
 fi
 
 export LANG=en_US.UTF-8
