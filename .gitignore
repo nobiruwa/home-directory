@@ -15,8 +15,3 @@
 !bin
 !bin/emacs-urxvt
 !bin/jshint-curl
-
-!misc
-!misc/noflo.git
-!misc/noflo.git/**
-!misc/noflo.git/**/*
