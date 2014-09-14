@@ -10,9 +10,6 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    if [ -f "$HOME/.bash_profile" ]; then
-	. "$HOME/.bash_profile"
-    fi
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
@@ -22,4 +19,14 @@ fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/android-sdk-linux" ] ; then
+    PATH="$HOME/android-sdk-linux/tools:$HOME/android-sdk-linux/platform-tools:$PATH"
+fi
+
+# npm global package go to ~/.node,
+# not forget 'echo prefix=~/.node >> $HOME/.npmrc'
+# (caution: $HOME does not work in .npmrc)
+if [ -d "$HOME/.node" ] ; then
+    PATH="$HOME/.node/bin:$PATH"
 fi

@@ -11,6 +11,13 @@ xset r rate 250 30
 # Make Caps Lock a Control key
 setxkbmap -layout us -option ctrl:nocaps
 
+is_jp_keybd=`setxkbmap -print|grep -o pc105`
+if [ "x" = "x$is_jp_keybd" ]; then
+    exit 0 # JPキーボードでない
+else
+    xkbcomp $HOME/.xkb/modifier.xkb $DISPLAY 2>&1 > /dev/null
+fi
+
 #$HOME/.dropbox-dist/dropboxd &
 emacs-urxvt &
 
