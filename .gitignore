@@ -12,6 +12,10 @@
 !.config
 !.config/user-dirs.dirs
 
+!.xkb
+!.xkb/loadxkb.sh
+!.xkb/modifier.xkb
+
 !bin
 !bin/emacs-urxvt
 !bin/jshint-curl
