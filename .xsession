@@ -13,7 +13,7 @@ setxkbmap -layout us -option ctrl:nocaps
 
 is_jp_keybd=`setxkbmap -print|grep -o pc105`
 if [ "x" = "x$is_jp_keybd" ]; then
-    exit 0 # JPキーボードでない
+    echo "You're using US keyboard..." # JPキーボードでない
 else
     xkbcomp $HOME/.xkb/modifier.xkb $DISPLAY 2>&1 > /dev/null
 fi
