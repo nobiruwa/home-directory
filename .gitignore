@@ -11,6 +11,8 @@
 
 !.config
 !.config/user-dirs.dirs
+!.config/fontconfig
+!.config/fontconfig/fonts.conf
 
 !.xkb
 !.xkb/loadxkb.sh
