@@ -21,3 +21,7 @@
 !bin
 !bin/emacs-urxvt
 !bin/jshint-curl
+
+!sbin
+!sbin/get-backlight_thinkpad-e130.sh
+!sbin/set-backlight_thinkpad-e130.sh
