@@ -30,3 +30,7 @@ fi
 if [ -d "$HOME/.node" ] ; then
     PATH="$HOME/.node/bin:$PATH"
 fi
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi

@@ -10,6 +10,12 @@ if [ -d ~/bin ] ; then
     export PATH
 fi
 
+# XDG base directory setting
+LOCALBIN=$HOME/.local/bin
+if [ -d $LOCALBIN ] ; then
+    export PATH=$PATH:$LOCALBIN
+fi
+
 # Node.js setting
 NPMBIN=$HOME/.node/bin
 if [ -d $NPMBIN ] ; then
