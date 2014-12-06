@@ -12,7 +12,8 @@ URxvt.imFont: xft:VL Gothic:pixelsize=18
 URxvt.inputMethod: none
 URxvt.iso14755: false
 URxvt.iso14755_2: false
-
+URxvt.perl-ext:
+URxvt.perl-ext-common:
 ! Zenburn theme
 URxvt*foreground: #dcdccc
 URxvt*background: #3f3f3f
