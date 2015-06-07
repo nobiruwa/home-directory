@@ -21,6 +21,7 @@
 !bin
 !bin/emacs-urxvt
 !bin/jshint-curl
+!bin/xset-screen.py
 
 !sbin
 !sbin/get-backlight_thinkpad-e130.sh
