@@ -20,7 +20,10 @@
 
 !bin
 !bin/emacs-urxvt
+!bin/http-server.py
 !bin/jshint-curl
+!bin/open-jtalk.py
+!bin/xset-screen.py
 
 !sbin
 !sbin/get-backlight_thinkpad-e130.sh
