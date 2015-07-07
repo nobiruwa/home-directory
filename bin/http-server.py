@@ -7,6 +7,9 @@ from tornado.web import StaticFileHandler
 
 
 class NonCacheStaticFileHandler(StaticFileHandler):
+    def __init__(self, *args, **kwargs):
+        super(NonCacheStaticFileHandler, self).__init__(*args, **kwargs)
+
     def get(self, *args, **kwargs):
         super(NonCacheStaticFileHandler, self).get(*args, **kwargs)
 
@@ -21,6 +24,7 @@ class Application(object):
 
     def _create(self):
         application = tornado.web.Application([
+            (r'/(favicon.ico)', StaticFileHandler, {'path': ''}),
             (r'/(.+)', NonCacheStaticFileHandler, {
                 'path': self._opts.path
             }),
