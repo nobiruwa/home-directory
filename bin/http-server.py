@@ -1,20 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 import argparse
+import os
 
 import tornado.ioloop
 from tornado.web import StaticFileHandler
 
 
 class NonCacheStaticFileHandler(StaticFileHandler):
-    def __init__(self, *args, **kwargs):
-        super(NonCacheStaticFileHandler, self).__init__(*args, **kwargs)
-
-    def get(self, *args, **kwargs):
-        super(NonCacheStaticFileHandler, self).get(*args, **kwargs)
-
     def set_extra_headers(self, path):
-        self.set_header('Cache-control', 'no-store, no-cache, must-revalidate, max-age=0')
+        super(NonCacheStaticFileHandler, self).set_extra_headers(path)
+        self.set_header('Cache-control',
+                        'no-store, no-cache, must-revalidate, max-age=0')
 
 
 class Application(object):
@@ -25,15 +22,16 @@ class Application(object):
     def _create(self):
         application = tornado.web.Application([
             (r'/(favicon.ico)', StaticFileHandler, {'path': ''}),
-            (r'/(.+)', NonCacheStaticFileHandler, {
-                'path': self._opts.path
+            (r'/(.*)', NonCacheStaticFileHandler, {
+                'path': self._opts.path,
+                'default_filename': 'index.html',
             }),
         ])
         return application
 
     def print_opts(self):
-        import os
-        print('Path = {0} ({1})'.format(self._opts.path, os.path.abspath(self._opts.path)))
+        print('Path = {0} ({1})'.format(self._opts.path,
+                                        os.path.abspath(self._opts.path)))
         print('Serving HTTP on port {0} ....'.format(self._opts.port))
 
     def listen(self):
@@ -42,7 +40,9 @@ class Application(object):
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='Simple HTTP Server with Tornado')
+    parser = argparse.ArgumentParser(
+        description='Simple HTTP Server with Tornado'
+    )
     parser.add_argument('-p', '--port',
                         type=int,
                         default=8888)
