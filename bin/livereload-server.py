@@ -5,13 +5,17 @@ import argparse
 import os
 import sys
 env_dir = os.path.expanduser(
-    '~/.venvs/tornado/lib/python{}.{}/site-packages' \
+    '~/.venvs/tornado/lib/python{}.{}/site-packages'
     .format(sys.version_info.major, sys.version_info.minor)
 )
 sys.path.append(env_dir)
 
+
 import tornado.ioloop
 from tornado.web import StaticFileHandler
+from tornado.wsgi import WSGIApplication
+
+from livereload import Server
 
 
 class NonCacheStaticFileHandler(StaticFileHandler):
@@ -26,7 +30,7 @@ class Application(object):
         self._app = self._create()
 
     def _create(self):
-        application = tornado.web.Application([
+        application = WSGIApplication([
             (r'/(.+)', NonCacheStaticFileHandler, {
                 'path': self._opts.path
             }),
@@ -34,7 +38,6 @@ class Application(object):
         return application
 
     def print_opts(self):
-        import os
         print('Path = {0} ({1})'
               .format(self._opts.path, os.path.abspath(self._opts.path)))
         print('Serving HTTP on port {0} ....'.format(self._opts.port))
@@ -42,6 +45,11 @@ class Application(object):
     def listen(self):
         self.print_opts()
         self._app.listen(self._opts.port)
+
+    def serve(self):
+        self.server = Server(self._app)
+        self.server.serve(port=self._opts.port, root=self._opts.path)
+        self.server.serve()
 
 
 def parse_arguments():
@@ -58,9 +66,12 @@ def parse_arguments():
 
 if __name__ == '__main__':
     opts = parse_arguments()
-    Application(opts).listen()
+
     try:
-        tornado.ioloop.IOLoop.instance().start()
+        Application(opts).serve()
     except KeyboardInterrupt:
         tornado.ioloop.IOLoop.instance().stop()
         print('\nKeyboard interrupt received, Quit.')
+    except RuntimeError:
+        tornado.ioloop.IOLoop.instance().stop()
+        print('\nQuit.')
