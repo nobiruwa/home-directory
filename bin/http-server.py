@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 import argparse
-
 import os
 import sys
 env_dir = os.path.expanduser(
-    '~/.venvs/tornado/lib/python{}.{}/site-packages' \
+    '~/.venvs/tornado/lib/python{}.{}/site-packages'
     .format(sys.version_info.major, sys.version_info.minor)
 )
 sys.path.append(env_dir)
@@ -16,6 +15,7 @@ from tornado.web import StaticFileHandler
 
 class NonCacheStaticFileHandler(StaticFileHandler):
     def set_extra_headers(self, path):
+        super(NonCacheStaticFileHandler, self).set_extra_headers(path)
         self.set_header('Cache-control',
                         'no-store, no-cache, must-revalidate, max-age=0')
 
@@ -27,8 +27,10 @@ class Application(object):
 
     def _create(self):
         application = tornado.web.Application([
-            (r'/(.+)', NonCacheStaticFileHandler, {
-                'path': self._opts.path
+            (r'/(favicon.ico)', StaticFileHandler, {'path': ''}),
+            (r'/(.*)', NonCacheStaticFileHandler, {
+                'path': self._opts.path,
+                'default_filename': 'index.html',
             }),
         ])
         return application

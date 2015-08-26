@@ -9,13 +9,14 @@ HTSVOICE_WOMAN_TEMPLATE = ('$HOME/downloads/openjtalk/'
                            + '/mei_{0}.htsvoice')
 
 
+import argparse
 import os
 import subprocess
+import sys
 
 
-class CommandLineParser:
-    def parse_arguments(self):
-        import argparse
+class CommandLineParser(object):
+    def __init__(self):
         parser = argparse.ArgumentParser(description='Open JTalk wrapper')
         parser.add_argument('-s', '--sex', dest='sex',
                             choices=['man', 'woman'],
@@ -34,8 +35,14 @@ class CommandLineParser:
         parser.add_argument('-t', '--text', dest='text', default=None,
                             help='sentence')
         parser.add_argument('-i', '--infile', dest='infile', default=None, help='input file')
+        self.parser = parser
 
-        return parser.parse_args()
+    def parse_arguments(self):
+        return self.parser.parse_args()
+
+    def print_help(self):
+        self.parser.print_help()
+
 
 
 class OpenJTalkRunner(object):
@@ -96,7 +103,13 @@ class PlayerRunner(object):
 
 
 if __name__ == '__main__':
-    args = CommandLineParser().parse_arguments()
-    status = OpenJTalkRunner(args).run()
+    parser = CommandLineParser()
+    args = parser.parse_arguments()
+    try:
+        status = OpenJTalkRunner(args).run()
+    except ValueError:
+        parser.print_help()
+        sys.exit(1)
+
     if status == 0:
         PlayerRunner(args).run()

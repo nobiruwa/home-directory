@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 import argparse
-
 import os
 import sys
 env_dir = os.path.expanduser(
@@ -10,8 +9,6 @@ env_dir = os.path.expanduser(
 )
 sys.path.append(env_dir)
 
-
-import tornado.ioloop
 from tornado.web import StaticFileHandler
 from tornado.wsgi import WSGIApplication
 
@@ -20,6 +17,7 @@ from livereload import Server
 
 class NonCacheStaticFileHandler(StaticFileHandler):
     def set_extra_headers(self, path):
+        super(NonCacheStaticFileHandler, self).set_extra_headers(path)
         self.set_header('Cache-control',
                         'no-store, no-cache, must-revalidate, max-age=0')
 
@@ -31,25 +29,17 @@ class Application(object):
 
     def _create(self):
         application = WSGIApplication([
-            (r'/(.+)', NonCacheStaticFileHandler, {
-                'path': self._opts.path
+            (r'/(favicon.ico)', StaticFileHandler, {'path': ''}),
+            (r'/(.*)', NonCacheStaticFileHandler, {
+                'path': self._opts.path,
+                'default_filename': 'index.html'
             }),
         ])
         return application
 
-    def print_opts(self):
-        print('Path = {0} ({1})'
-              .format(self._opts.path, os.path.abspath(self._opts.path)))
-        print('Serving HTTP on port {0} ....'.format(self._opts.port))
-
-    def listen(self):
-        self.print_opts()
-        self._app.listen(self._opts.port)
-
     def serve(self):
         self.server = Server(self._app)
         self.server.serve(port=self._opts.port, root=self._opts.path)
-        self.server.serve()
 
 
 def parse_arguments():
@@ -66,12 +56,4 @@ def parse_arguments():
 
 if __name__ == '__main__':
     opts = parse_arguments()
-
-    try:
-        Application(opts).serve()
-    except KeyboardInterrupt:
-        tornado.ioloop.IOLoop.instance().stop()
-        print('\nKeyboard interrupt received, Quit.')
-    except RuntimeError:
-        tornado.ioloop.IOLoop.instance().stop()
-        print('\nQuit.')
+    Application(opts).serve()
