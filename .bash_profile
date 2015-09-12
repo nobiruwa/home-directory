@@ -10,6 +10,12 @@ if [ -d ~/bin ] ; then
     export PATH
 fi
 
+# Cabal (Haskell packages)
+CABALBIN=$HOME/.cabal/bin
+if [ -d $CABALBIN ] ; then
+    PATH=$PATH:$CABALBIN
+fi
+
 # XDG base directory setting
 LOCALBIN=$HOME/.local/bin
 if [ -d $LOCALBIN ] ; then
