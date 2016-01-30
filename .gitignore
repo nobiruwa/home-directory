@@ -1,4 +1,5 @@
 *
+!.Xresources
 !.antrc
 !.bash_aliases
 !.bash_logout
@@ -6,13 +7,12 @@
 !.bashrc
 !.gitignore
 !.profile
-!.Xresources
 !.xsession
 
 !.config
-!.config/user-dirs.dirs
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
+!.config/user-dirs.dirs
 
 !.xkb
 !.xkb/loadxkb.sh
@@ -22,9 +22,10 @@
 !bin/emacs-urxvt
 !bin/http-server.py
 !bin/jshint-curl
-!bin/open-jtalk.py
-!bin/xset-screen.py
 !bin/livereload-server.py
+!bin/open-jtalk.py
+!bin/update-dropbox.sh
+!bin/xset-screen.py
 
 !sbin
 !sbin/get-backlight_thinkpad-e130.sh
