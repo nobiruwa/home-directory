@@ -20,6 +20,7 @@
 
 !bin
 !bin/emacs-urxvt
+!bin/global-address.sh
 !bin/http-server.py
 !bin/jshint-curl
 !bin/livereload-server.py
