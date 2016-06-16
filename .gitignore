@@ -25,6 +25,7 @@
 !bin/jshint-curl
 !bin/livereload-server.py
 !bin/open-jtalk.py
+!bin/tap-html-reporter.js
 !bin/update-dropbox.sh
 !bin/xset-screen.py
 
