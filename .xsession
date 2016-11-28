@@ -2,6 +2,10 @@
 
 USE_SESSION=awesome
 export LANG=en_US.UTF-8
+export CLUTTER_IM_MODULE=uim
+export GTK_IM_MODULE=uim
+export QT_IM_MODULE=uim
+export QT4_IM_MODULE=uim
 
 xset -b
 
