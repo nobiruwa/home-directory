@@ -1,11 +1,22 @@
 !Font DPI is constant with this display resolution.
 Xft.dpi: 96
+
 Emacs*useXIM: false
 Emacs.toolBar: 0
 Emacs.geometry: 80x32-0+0
 Emacs.font: VL Gothic-15
-XTerm*font: -efont-fixed-medium-r-normal-*-14-*-*-*-c-*-iso10646-1
-XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
+
+XTerm*utf8: true
+XTerm*locale: true
+XTerm*cjkWidth: true
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceNameDoublesize: VL Gothic
+XTerm*faceSize: 10
+XTerm*termName: xterm-256color
+XTerm*font: -efont-fixed-medium-r-normal-*-16-*-*-*-c-*-iso10646-1
+XTerm*ximFont: -efont-fixed-medium-r-normal-*-16-*-*-*-c-*-iso10646-1
+XTerm*background: rgb:3f/3f/3f
+XTerm*foreground: rgb:dc/dc/cc
 
 URxvt.font: xft:VL Gothic:pixelsize=18, xft:DejaVu Sans Mono:pixelsize=18
 URxvt.imFont: xft:VL Gothic:pixelsize=18, xft:DejaVu Sans Mono:pixelsize=18
