@@ -459,8 +459,8 @@ awful.rules.rules = {
     },
 
     -- urxvt
-    {  rule = { class = "URxvt" },
-       properties = { size_hints_honor = false } },
+    { rule = { class = "URxvt" },
+      properties = { size_hints_honor = false } },
 
     -- Floating clients.
     { rule_any = {
