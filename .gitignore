@@ -10,6 +10,9 @@
 !.xsession
 
 !.config
+!.config/awesome
+!.config/awesome/mobile
+!.config/awesome/mobile/rc.lua
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
 !.config/user-dirs.dirs
