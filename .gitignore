@@ -11,6 +11,8 @@
 
 !.config
 !.config/awesome
+!.config/awesome/desktop
+!.config/awesome/desktop/rc.lua
 !.config/awesome/mobile
 !.config/awesome/mobile/rc.lua
 !.config/fontconfig
