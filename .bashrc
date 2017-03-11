@@ -52,7 +52,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
+if [ "$TERM" != "dumb" -o "$INSIDE_EMACS" ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
     #alias dir='ls --color=auto --format=vertical'
