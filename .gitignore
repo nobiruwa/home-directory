@@ -12,6 +12,9 @@
 !bin/viera_display.sh
 !bin/xset-screen.py
 
+!bin/powershell/Copy.ps1
+!bin/powershell/Remote-Interact.ps1
+
 !sbin
 !sbin/detect-sysfs-e130.sh
 !sbin/get-backlight_thinkpad-e130.sh
