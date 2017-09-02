@@ -8,7 +8,6 @@
 !.gitignore
 !.npmrc
 !.profile
-!.xprofile
 !.Xresources
 !.xsession
 
@@ -33,9 +32,6 @@
 !bin/
 !bin/open-jtalk.py
 !bin/update-dropbox.sh
-!bin/powershell
-!bin/powershell/Remote-Interact.ps1
-!bin/powershell/Copy.ps1
 !bin/viera_display.sh
 !bin/livereload-server.py
 !bin/xset-screen.py
