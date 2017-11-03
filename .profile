@@ -53,28 +53,3 @@ export ALTERNATE_EDITOR=emacs
 export OOO_FORCE_DESKTOP=gnome
 #http://awesome.naquadah.org/wiki/Problems_with_Java
 export JAVA_AWT_WM_NONREPARENTING=1
-
-# # set PATH so it includes user's private bin if it exists
-# if [ -d "$HOME/bin" ] ; then
-#     PATH="$HOME/bin:$PATH"
-# fi
-
-
-# if [ -d "$HOME/android-sdk-linux" ] ; then
-#     PATH="$HOME/android-sdk-linux/tools:$HOME/android-sdk-linux/platform-tools:$PATH"
-# fi
-
-# npm global package go to ~/.node,
-# not forget 'echo prefix=~/.node >> $HOME/.npmrc'
-# (caution: $HOME does not work in .npmrc)
-# if [ -d "$HOME/.node" ] ; then
-#     PATH="$HOME/.node/bin:$PATH"
-# fi
-
-# if [ -d "$HOME/.local/bin" ] ; then
-#     PATH="$HOME/.local/bin:$PATH"
-# fi
-
-# if [ -d "$HOME/.cabal/bin" ] ; then
-#     PATH="$HOME/.cabal/bin:$PATH"
-# fi
