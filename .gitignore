@@ -17,32 +17,34 @@
 
 !.config/
 !.config/awesome
-!.config/awesome/mobile
-!.config/awesome/mobile/rc.lua
 !.config/awesome/desktop
 !.config/awesome/desktop/rc.lua
-!.config/user-dirs.dirs
+!.config/awesome/mobile
+!.config/awesome/mobile/rc.lua
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
+!.config/user-dirs.dirs
 
 !.xkb/
-!.xkb/modifier.xkb
 !.xkb/loadxkb.sh
+!.xkb/modifier.xkb
 
 !bin/
+!bin/emacs-urxvt
+!bin/global-address.sh
+!bin/http-server.py
+!bin/livereload-server.py
 !bin/open-jtalk.py
+!bin/stack-install
+!bin/update-dropbox
 !bin/update-dropbox.sh
 !bin/viera_display.sh
-!bin/livereload-server.py
 !bin/xset-screen.py
-!bin/global-address.sh
-!bin/emacs-urxvt
-!bin/http-server.py
 
 !sbin/
-!sbin/get-backlight_thinkpad-e130.sh
-!sbin/set-backlight_thinkpad-e130.sh
-!sbin/powersave-ethernet.sh
 !sbin/detect-sysfs-e130.sh
+!sbin/get-backlight_thinkpad-e130.sh
 !sbin/powersave-e130.sh
+!sbin/powersave-ethernet.sh
+!sbin/set-backlight_thinkpad-e130.sh
 !sbin/stop-ethernet.sh
