@@ -1,6 +1,11 @@
 #!/bin/sh
 
 NEW_BRIGHTNESS_PERCENT=$1 # 1% to 100%
+if [ -z $NEW_BRIGHTNESS_PERCENT ]; then
+    NEW_BRIGHTNESS_PERCENT=100
+fi
+
+echo $NEW_BRIGHTNESS_PERCENT
 TARGET_FILE=/sys/class/backlight/intel_backlight/brightness
 MAX_BRIGHTNESS=$(cat /sys/class/backlight/intel_backlight/max_brightness)
 echo $NEW_BRIGHTNESS_PERCENT $MAX_BRIGHTNESS
