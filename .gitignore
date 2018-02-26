@@ -2,6 +2,7 @@
 
 !.antrc
 !.bash_aliases
+!.bash_env
 !.bash_logout
 !.bash_profile
 !.bashrc
