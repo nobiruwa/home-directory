@@ -122,7 +122,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- https://awesome.naquadah.org/wiki/Gizmoguy%27s_super-easy_acpi_battery_widget
 batterywidget = wibox.widget.textbox()
 batterywidget:set_text(" | Battery | ")
-batterywidgettimer = timer({ timeout = 120 })
+batterywidgettimer = gears.timer({ timeout = 120 })
 batterywidgettimer:connect_signal(
    "timeout",
    function()
