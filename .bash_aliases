@@ -4,7 +4,9 @@ alias ec=emacsclient
 alias man='LANG=C man'
 alias pstree='pstree -A'
 alias screen='TERM=screen screen'
-alias timidity='timidity --output-24bit'
+alias tm="timidity -OjS -c $HOME/.timidity.cfg"
+alias tm16="timidity -OjS --output-16bit -c $HOME/.timidity.cfg"
+alias tm24="timidity --output-24bit -c $HOME/.timidity.cfg"
 alias vi='vim'
 alias xc='xclip -selection clipboard'
 alias xp='xclip -selection primary'
