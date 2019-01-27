@@ -18,8 +18,9 @@ XTerm*ximFont: -efont-fixed-medium-r-normal-*-16-*-*-*-c-*-iso10646-1
 XTerm*background: rgb:3f/3f/3f
 XTerm*foreground: rgb:dc/dc/cc
 
-URxvt.font: xft:VL Gothic:pixelsize=18, xft:DejaVu Sans Mono:pixelsize=18
-URxvt.imFont: xft:VL Gothic:pixelsize=18, xft:DejaVu Sans Mono:pixelsize=18
+URxvt.font: xft:VL Gothic:pixelsize=18,xft:Noto Mono:pixelsize=18,xft:Noto Sans Mono CJK JP:pixelsize=18,xft:Noto Sans Mono CJK KR:pixelsize=18,xft:Noto Sans Mono CJK TC:pixelsize=18,xft:Noto Sans Mono CJK SC:pixelsize=18,xft:Droid Sans Fallback:pixelsize=18,xft:DejaVu Sans Mono:pixelsize=18
+URxvt.imFont: xft:VL Gothic:pixelsize=18,xft:Noto Mono:pixelsize=18,xft:Noto Sans Mono CJK JP:pixelsize=18,xft:Noto Sans Mono CJK KR:pixelsize=18,xft:Noto Sans Mono CJK TC:pixelsize=18,xft:Noto Sans Mono CJK SC:pixelsize=18,xft:Droid Sans Fallback:pixelsize=18,xft:DejaVu Sans Mono:pixelsize=18
+URxvt.boldFont: xft:VL Gothic:bold:pixelsize=18,xft:Noto Mono Bold:bold:pixelsize=18,xft:Noto Sans Mono CJK JP Bold:bold:pixelsize=18,xft:Noto Sans Mono CJK KR Bold:bold:pixelsize=18,xft:Noto Sans Mono CJK TC Bold:bold:pixelsize=18,xft:Noto Sans Mono CJK SC Bold:bold:pixelsize=18,xft:DejaVu Sans Mono:bold:pixelsize=18
 URxvt.inputMethod: none
 URxvt.iso14755: false
 URxvt.iso14755_2: false
