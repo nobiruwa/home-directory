@@ -3,13 +3,13 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# android sdk setting
+# android sdk configuration
 ANDROID_HOME=$HOME/opt/android-sdk-linux
 if [ -d $ANDROID_HOME ] ; then
     export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 fi
 
-# Node.js setting
+# Node.js configuration
 # npm global package go to ~/.node,
 # not forget 'echo prefix=~/.node >> $HOME/.npmrc'
 # (caution: $HOME does not work in .npmrc)
@@ -24,13 +24,13 @@ if [ -d $CABALBIN ] ; then
     PATH="$CABALBIN:$PATH"
 fi
 
-# XDG base directory setting
+# XDG base directory configuration
 LOCALBIN=$HOME/.local/bin
 if [ -d $LOCALBIN ] ; then
     PATH="$LOCALBIN:$PATH"
 fi
 
-# jEnv setting
+# jEnv configuration
 JENVBIN=$HOME/.jenv/bin
 if [ -d $JENVBIN ] ; then
     PATH="$JENVBIN:$PATH"
