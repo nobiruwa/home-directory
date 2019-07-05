@@ -21,19 +21,27 @@ fi
 # Cabal (Haskell packages)
 CABALBIN=$HOME/.cabal/bin
 if [ -d $CABALBIN ] ; then
-    PATH="$CABALBIN:$PATH"
+    export PATH="$CABALBIN:$PATH"
 fi
 
 # XDG base directory configuration
 LOCALBIN=$HOME/.local/bin
 if [ -d $LOCALBIN ] ; then
-    PATH="$LOCALBIN:$PATH"
+    export PATH="$LOCALBIN:$PATH"
 fi
 
 # jEnv configuration
 JENVBIN=$HOME/.jenv/bin
 if [ -d $JENVBIN ] ; then
-    PATH="$JENVBIN:$PATH"
+    export PATH="$JENVBIN:$PATH"
+    # Oops. The following line does not seem to work, because my login shell is dash.
+    eval "$(jenv init -)"
+    # https://github.com/jenv/jenv/issues/44#issuecomment-39356954
+    # execute beforehand: jenv add <JDK Path> && jenv global <version-name>
+    # then, execute the following commands.
+    # jenv sh-enable-plugin export
+    # jenv sh-enable-plugin maven
+    # jenv sh-enable-plugin gradle
 fi
 
 export LANG=en_US.UTF-8
