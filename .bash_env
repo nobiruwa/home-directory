@@ -1,4 +1,4 @@
-if [[ ! -v "$BASH_ENV_LOADED" ]]; then
+if [[ -v "$BASH_ENV_LOADED" ]]; then
     return 0
 fi
 export BASH_ENV_LOADED=t
