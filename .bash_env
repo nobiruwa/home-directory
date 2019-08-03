@@ -1,3 +1,8 @@
+if [[ ! -v "$BASH_ENV_LOADED" ]]; then
+    return 0
+fi
+export BASH_ENV_LOADED=t
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
