@@ -9,8 +9,8 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # android sdk configuration
-ANDROID_HOME=$HOME/opt/android-sdk-linux
-if [ -d $ANDROID_HOME ] ; then
+ANDROID_HOME="$HOME/opt/android-sdk-linux"
+if [ -d "$ANDROID_HOME" ] ; then
     export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 fi
 
@@ -18,27 +18,31 @@ fi
 # npm global package go to ~/.node,
 # not forget 'echo prefix=~/.node >> $HOME/.npmrc'
 # (caution: $HOME does not work in .npmrc)
-NPMBIN=$HOME/.node/bin
-if [ -d $NPMBIN ] ; then
-    export PATH="$NPMBIN:$PATH"
+NPM_HOME="$HOME/.node"
+NPM_BIN="$NPM_HOME/bin"
+if [ -d "$NPM_BIN" ] ; then
+    export PATH="$NPM_BIN:$PATH"
 fi
 
 # Cabal (Haskell packages)
-CABALBIN=$HOME/.cabal/bin
-if [ -d $CABALBIN ] ; then
-    export PATH="$CABALBIN:$PATH"
+CABAL_HOME="$HOME/.cabal"
+CABAL_BIN="$CABAL_HOME/bin"
+if [ -d "$CABAL_BIN" ] ; then
+    export PATH="$CABAL_BIN:$PATH"
 fi
 
 # XDG base directory configuration
-LOCALBIN=$HOME/.local/bin
-if [ -d $LOCALBIN ] ; then
-    export PATH="$LOCALBIN:$PATH"
+LOCAL_HOME="$HOME/.local"
+LOCAL_BIN="$LOCAL_HOME/bin"
+if [ -d "$LOCAL_BIN" ] ; then
+    export PATH="$LOCAL_BIN:$PATH"
 fi
 
 # jEnv configuration
-JENVBIN=$HOME/.jenv/bin
-if [ -d $JENVBIN ] ; then
-    export PATH="$JENVBIN:$PATH"
+JENV_HOME="$HOME/.jenv"
+JENV_BIN="$JENV_HOME/bin"
+if [ -d "$JENV_BIN" ] ; then
+    export PATH="$JENV_BIN:$PATH"
     # Oops. The following line does not seem to work, because my login shell is dash.
     # Speed up:
     # https://github.com/jenv/jenv/issues/178#issuecomment-388996995
@@ -51,6 +55,13 @@ if [ -d $JENVBIN ] ; then
     # jenv sh-enable-plugin maven
     # jenv sh-enable-plugin gradle
     # jenv rehash
+fi
+
+# etlas configuration
+ETLAS_HOME="$HOME/opt/etlas"
+ETLAS_BIN="$ETLAS_HOME/bin"
+if [ -d "$ETLAS_BIN" ] ; then
+    export PATH="$ETLAS_BIN:$PATH"
 fi
 
 export LANG=en_US.UTF-8
