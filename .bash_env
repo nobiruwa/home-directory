@@ -81,6 +81,12 @@ if [ -d "$ROSWELL_BIN" ] ; then
     export PATH="$ROSWELL_BIN:$PATH"
 fi
 
+ROSWELL_LOCAL_HOME="$HOME/.roswell"
+ROSWELL_LOCAL_BIN="$ROSWELL_LOCAL_HOME/bin"
+if [ -d "$ROSWELL_LOCAL_BIN" ] ; then
+    export PATH="$ROSWELL_LOCAL_BIN:$PATH"
+fi
+
 export LANG=en_US.UTF-8
 export ALTERNATE_EDITOR=emacs
 export OOO_FORCE_DESKTOP=gnome
