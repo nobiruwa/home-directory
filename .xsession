@@ -32,8 +32,11 @@ else
     echo "Ignore $HOME/.xsession-local..."
 fi
 
-#$HOME/.dropbox-dist/dropboxd &
-emacs-urxvt &
+# $HOME/.dropbox-dist/dropboxd &
+
+# Emacs
+# emacs-urxvt &
+emacs &
 
 # execute awesome
 if test $USE_SESSION = awesome; then
