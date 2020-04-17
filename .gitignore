@@ -10,6 +10,7 @@
 !.npmrc
 !.profile
 !.Xresources
+!.Xresources_urxvt_zenburn
 !.xsession
 
 !create-gitignore.sh

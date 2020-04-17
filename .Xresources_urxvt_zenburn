@@ -1,0 +1,42 @@
+! Zenburn theme
+URxvt*foreground: #dcdccc
+URxvt*background: #3f3f3f
+
+URxvt*colorUL: #c5f779
+URxvt*underlineColor: #c5f779
+
+! dark
+!! black
+URxvt*color0: #3f3f3f
+!! red
+URxvt*color1: #705050
+!! green
+URxvt*color2: #60b48a
+!! yellow
+URxvt*color3: #dfaf8f
+!! blue
+URxvt*color4: #506070
+!! magenta
+URxvt*color5: #dc8cc3
+!! cyan
+URxvt*color6: #8cd0d3
+!! white
+URxvt*color7: #dcdccc
+
+! light theme
+!! black
+URxvt*color8: #709080
+!! red
+URxvt*color9: #cc9393
+!! green
+URxvt*color10: #7f9f7f
+!! yellow
+URxvt*color11: #f0dfaf
+!! blue
+URxvt*color12: #94bff3
+!! magenta
+URxvt*color13: #ec93d3
+!! cyan
+URxvt*color14: #93e0e3
+!! white
+URxvt*color15: #ffffff
