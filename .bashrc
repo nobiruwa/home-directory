@@ -72,7 +72,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ "$EMACS" = "t" ]; then
-    #TERM=emacs
+    TERM=ansi
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
 fi
