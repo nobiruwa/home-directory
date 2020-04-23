@@ -71,8 +71,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-if [ "$EMACS" = "t" ]; then
-    TERM=ansi
+if [[ "$INSIDE_EMACS" = *",comint" ]]; then
+    export TERM=ansi
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
 fi
