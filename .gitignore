@@ -25,6 +25,7 @@
 !.config/awesome/mobile/rc.lua
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
+!.config/redshift.conf
 !.config/user-dirs.dirs
 
 !.xkb/
