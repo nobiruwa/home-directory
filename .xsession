@@ -34,9 +34,16 @@ fi
 
 # $HOME/.dropbox-dist/dropboxd &
 
+# redshift-gtk
+if test -x "`which redshift-gtk`" ; then
+    redshift-gtk &
+fi
+
 # Emacs
 # emacs-urxvt &
-emacs &
+if test -x "`which emacs`" ; then
+    emacs &
+fi
 
 # execute awesome
 if test $USE_SESSION = awesome; then
