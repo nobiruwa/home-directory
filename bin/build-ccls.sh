@@ -8,8 +8,8 @@ function clone {
 }
 
 if [ x"rebuild" = x"$1" ]; then
-    if [ -d "$CCLS_DIR"]; then
-        mv "$CCLS_DIR" "/tmp/${CCLS_DIR}.old"
+    if [ -d "${CCLS_DIR}" ]; then
+        mv "${CCLS_DIR}" "/tmp/ccls.git.old"
     fi
     clone
 fi
@@ -19,3 +19,7 @@ if [ ! -d "${CCLS_DIR}" ]; then
 fi
 
 cd "${CCLS_DIR}" && cmake -H. -Brelease -DCMAKE_BUILD_TYPE=Release && cmake --build release
+
+if [ -d "/tmp/ccls.git.old" ]; then
+    rm -rf "/tmp/ccls.git.old"
+fi
