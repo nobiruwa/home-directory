@@ -45,6 +45,14 @@
 !bin/viera_display.sh
 !bin/xset-screen.py
 
+!etc/
+!etc/console-setup/
+!etc/console-setup/cached.kmap.gz
+!etc/console-setup/cached.kmap.gz.old
+!etc/console-setup/cached_UTF-8_del.kmap.gz
+!etc/console-setup/remap.inc
+!etc/console-setup/remap.inc.dpkg-dist
+
 !sbin/
 !sbin/detect-sysfs-e130.sh
 !sbin/get-backlight_thinkpad-e130.sh
