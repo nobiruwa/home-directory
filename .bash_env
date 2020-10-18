@@ -38,6 +38,20 @@ if [ -d "$LOCAL_BIN" ] ; then
     export PATH="$LOCAL_BIN:$PATH"
 fi
 
+# maven directory configuration
+MAVEN_HOME="$HOME/opt/apache-maven"
+MAVEN_BIN="$MAVEN_HOME/bin"
+if [ -d "$MAVEN_BIN" ] ; then
+    export PATH="$MAVEN_BIN:$PATH"
+fi
+
+# gradle directory configuration
+GRADLE_HOME="$HOME/opt/gradle"
+GRADLE_BIN="$GRADLE_HOME/bin"
+if [ -d "$GRADLE_BIN" ] ; then
+    export PATH="$GRADLE_BIN:$PATH"
+fi
+
 # jEnv configuration
 JENV_HOME="$HOME/.jenv"
 JENV_BIN="$JENV_HOME/bin"
@@ -85,6 +99,11 @@ ROSWELL_LOCAL_HOME="$HOME/.roswell"
 ROSWELL_LOCAL_BIN="$ROSWELL_LOCAL_HOME/bin"
 if [ -d "$ROSWELL_LOCAL_BIN" ] ; then
     export PATH="$ROSWELL_LOCAL_BIN:$PATH"
+fi
+
+AWESOME_WALLPAPER="$HOME/.config/awesome/wallpaper.png"
+if [ -f "$AWESOME_WALLPAPER" ] ; then
+    export AWESOME_WALLPAPER
 fi
 
 export LANG=en_US.UTF-8
