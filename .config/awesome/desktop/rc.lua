@@ -180,10 +180,12 @@ local function set_wallpaper(s)
 
         -- ein: 壁紙を上書きします。
         local wallpaper_path = os.getenv("AWESOME_WALLPAPER")
-        local wallpaper_file = io.open(wallpaper_path, "r")
-        if wallpaper_file~=nil then
-           io.close(wallpaper_file)
-           wallpaper = wallpaper_path
+        if wallpaper_path then
+           local wallpaper_file = io.open(wallpaper_path, "r")
+           if wallpaper_file then
+              io.close(wallpaper_file)
+              wallpaper = wallpaper_path
+           end
         end
 
         gears.wallpaper.maximized(wallpaper, s, true)
