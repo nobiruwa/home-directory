@@ -60,6 +60,8 @@
 !etc/console-setup/README.md
 !etc/console-setup/remap.inc
 !etc/console-setup/remap.inc.dpkg-dist
+!etc/geoclue
+!etc/geoclue/geoclue.conf
 
 !sbin/
 !sbin/detect-sysfs-e130.sh
