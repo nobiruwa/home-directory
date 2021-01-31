@@ -126,6 +126,29 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
+
+-- If the device has a battery, show a battery widget
+local acpi = io.popen("acpi 2> /dev/null", "r")
+local acpicontent = acpi:read('*all')
+acpi:close()
+
+if string.find(acpicontent, "Battery") then
+   -- Create a battery widget
+   -- https://awesome.naquadah.org/wiki/Gizmoguy%27s_super-easy_acpi_battery_widget
+   batterywidget = wibox.widget.textbox()
+   batterywidget:set_text(" | Battery | ")
+   batterywidgettimer = gears.timer({ timeout = 120 })
+   batterywidgettimer:connect_signal(
+      "timeout",
+      function()
+         fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
+         batterywidget:set_text(" |" .. fh:read("*l") .. " | ")
+         fh:close()
+      end
+   )
+   batterywidgettimer:start()
+end
+
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
