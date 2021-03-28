@@ -101,16 +101,26 @@ if [ -d "$ROSWELL_LOCAL_BIN" ] ; then
     export PATH="$ROSWELL_LOCAL_BIN:$PATH"
 fi
 
+# set a wallpaper on awesome
 AWESOME_WALLPAPER="$HOME/.config/awesome/wallpaper.png"
 if [ -f "$AWESOME_WALLPAPER" ] ; then
     export AWESOME_WALLPAPER
 fi
 
+# start jackd if jackd2 installed
+JACKD2_JACK_CONTROL=`which jack_control`
+if [ -x "$JACKD2_JACK_CONTROL" ] ; then
+    "$JACKD2_JACK_CONTROL" start
+fi
+
+# locale
 export LANG=en_US.UTF-8
+# https://www.gnu.org/software/emacs/manual/html_node/emacs/emacsclient-Options.html
 export ALTERNATE_EDITOR=emacs
+# https://wiki.debian.org/LibreOffice#Fixing_poor_look_and_feel_in_LibreOffice
 export OOO_FORCE_DESKTOP=gnome
-#http://awesome.naquadah.org/wiki/Problems_with_Java
-export JAVA_AWT_WM_NONREPARENTING=1
+# https://wiki.archlinux.org/index.php/java#Gray_window.2C_applications_not_resizing_with_WM.2C_menus_immediately_closing
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Local Variables:
 # mode: shell-script
