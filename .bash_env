@@ -101,6 +101,13 @@ if [ -d "$ROSWELL_LOCAL_BIN" ] ; then
     export PATH="$ROSWELL_LOCAL_BIN:$PATH"
 fi
 
+# Cargo configuration
+CARGO_HOME="$HOME/.cargo"
+CARGO_BIN="$CARGO_HOME/bin"
+if [ -d "$CARGO_BIN" ] ; then
+    export PATH="$CARGO_BIN:$PATH"
+fi
+
 # set a wallpaper on awesome
 AWESOME_WALLPAPER="$HOME/.config/awesome/wallpaper.png"
 if [ -f "$AWESOME_WALLPAPER" ] ; then
