@@ -61,6 +61,12 @@
 !etc/geoclue
 !etc/geoclue/geoclue.conf
 
+!repo/
+!repo/nobiruwa.github/
+!repo/nobiruwa.github/cloneall.sh
+!repo/nobiruwa.github/pullall.sh
+!repo/nobiruwa.github/rebaseall.sh
+
 !sbin/
 !sbin/detect-sysfs-e130.sh
 !sbin/get-backlight_thinkpad-e130.sh
