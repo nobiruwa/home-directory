@@ -12,5 +12,5 @@ for repo in $REPOS; do
 done
 
 echo clone nobiruwa.github.io.master.git...
-git clone $URL_TEMPLATE --branch master nobiruwa.github.io.git nobiruwa.github.io.master.git
+git clone --branch master ${URL_TEMPLATE}nobiruwa.github.io.git nobiruwa.github.io.master.git
 echo ""
