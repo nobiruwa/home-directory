@@ -8,7 +8,6 @@ ROOT_DIR=`pwd`
 for repo in $REPOS; do
     echo enter $repo...
     cd $repo
-    git status
     git pull
     git status
     cd $ROOT_DIR
