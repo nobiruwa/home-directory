@@ -1,4 +1,4 @@
-alias adb='sudo -i `which adb`'
+alias adb='sudo -i `command -v adb`'
 alias dchroot='TERM=xterm dchroot'
 alias ec=emacsclient
 alias man='LANG=C man'

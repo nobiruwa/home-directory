@@ -35,13 +35,13 @@ fi
 # $HOME/.dropbox-dist/dropboxd &
 
 # redshift-gtk
-if test -x "`which redshift-gtk`" ; then
+if test -x "`command -v redshift-gtk`" ; then
     redshift-gtk &
 fi
 
 # Emacs
 # emacs-urxvt &
-if test -x "`which emacs`" ; then
+if test -x "`command -v emacs`" ; then
     emacs &
 fi
 

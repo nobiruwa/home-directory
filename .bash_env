@@ -115,7 +115,7 @@ if [ -f "$AWESOME_WALLPAPER" ] ; then
 fi
 
 # start jackd if jackd2 installed
-JACKD2_JACK_CONTROL=`which jack_control`
+JACKD2_JACK_CONTROL=`command -v jack_control`
 if [ -x "$JACKD2_JACK_CONTROL" ] ; then
     "$JACKD2_JACK_CONTROL" start
 fi
