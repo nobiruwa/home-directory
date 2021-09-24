@@ -38,7 +38,6 @@
 !.xkb/modifier.xkb
 
 !bin/
-!bin/build-ccls.sh
 !bin/emacs-urxvt
 !bin/eslint-cygwin.sh
 !bin/global-address.sh
@@ -62,6 +61,8 @@
 !etc/geoclue/geoclue.conf
 
 !repo/
+!repo/build-ccls.sh
+!repo/download-haskell-language-server.sh
 !repo/nobiruwa.github/
 !repo/nobiruwa.github/cloneall.sh
 !repo/nobiruwa.github/pullall.sh
