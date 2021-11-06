@@ -114,10 +114,15 @@ if [ -f "$AWESOME_WALLPAPER" ] ; then
     export AWESOME_WALLPAPER
 fi
 
-# start jackd if jackd2 installed
-JACKD2_JACK_CONTROL=`command -v jack_control`
-if [ -x "$JACKD2_JACK_CONTROL" ] ; then
-    "$JACKD2_JACK_CONTROL" start
+# Pen configuration
+PEN_AIX_KEY="$HOME/.pen/aix_api_key"
+PEN_OPENAI_KEY="$HOME/.pen/openai_api_key"
+PEN_REPO="$HOME/repo/pen.el.git"
+if [ -f "$PEN_AIX_KEY" ] && [ -f "$PEN_OPENAI_KEY" ] && [ -d "$PEN_REPO" ] ; then
+    export PATH="$PATH:$PEN_REPO/scripts"
+    # Add this to prevent C-s from freezing the terminal
+    stty stop undef 2>/dev/null
+    stty start undef 2>/dev/null
 fi
 
 # locale
