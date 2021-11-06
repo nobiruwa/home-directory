@@ -4,7 +4,6 @@ Xft.dpi: 96
 Emacs*useXIM: false
 Emacs.toolBar: 0
 Emacs.geometry: 80x32-0+0
-Emacs.font: VL Gothic-15
 
 XTerm*utf8: true
 XTerm*locale: true
