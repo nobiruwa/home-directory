@@ -7,6 +7,7 @@ export GTK_IM_MODULE=uim
 export QT_IM_MODULE=uim
 export QT4_IM_MODULE=uim
 
+# ビープ音をオフにする
 xset -b
 
 if test -e $HOME/.Xresources; then

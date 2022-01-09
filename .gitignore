@@ -11,7 +11,7 @@
 !.profile
 !.Xresources
 !.Xresources_urxvt_zenburn
-!.xsession
+!.xsessionrc
 
 !create-gitignore.sh
 !LICENSE
