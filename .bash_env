@@ -31,6 +31,13 @@ if [ -d "$CABAL_BIN" ] ; then
     export PATH="$CABAL_BIN:$PATH"
 fi
 
+# GHCup (Haskell packages)
+GHCUP_HOME="$HOME/.ghcup"
+GHCUP_BIN="$GHCUP_HOME/bin"
+if [ -d "$GHCUP_BIN" ] ; then
+    export PATH="$GHCUP_BIN:$PATH"
+fi
+
 # XDG base directory configuration
 LOCAL_HOME="$HOME/.local"
 LOCAL_BIN="$LOCAL_HOME/bin"
