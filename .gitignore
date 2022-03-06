@@ -40,9 +40,10 @@
 !bin/
 !bin/emacs-urxvt
 !bin/eslint-cygwin.sh
-!bin/ghcup-install
 !bin/global-address.sh
 !bin/http-server.py
+!bin/install-ghcup.sh
+!bin/install-pandoc.sh
 !bin/livereload-server.py
 !bin/open-jtalk.py
 !bin/update-dropbox.sh
