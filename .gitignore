@@ -42,11 +42,13 @@
 !bin/eslint-cygwin.sh
 !bin/global-address.sh
 !bin/http-server.py
+!bin/install-dropbox.sh
 !bin/install-ghcup.sh
 !bin/install-pandoc.sh
+!bin/install-rust-analyzer.sh
+!bin/install-rustup.sh
 !bin/livereload-server.py
 !bin/open-jtalk.py
-!bin/update-dropbox.sh
 !bin/viera_display.sh
 !bin/xset-screen.py
 
