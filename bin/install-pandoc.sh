@@ -33,6 +33,7 @@ WORK_DIR="/tmp/pandoc-${LATEST_VERSION}"
 DOWNLOAD_PATH="${WORK_DIR}/${FILE_NAME}"
 
 # ファイルをダウンロード
+mkdir -p "${WORK_DIR}"
 wget --no-verbose "${DOWNLOAD_URL}" -O ${DOWNLOAD_PATH} 2>> "${LOG_PATH}"
 
 WGET_EXIT_CODE=$?
