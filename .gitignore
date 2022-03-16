@@ -13,6 +13,7 @@
 !bin/global-address.sh
 !bin/http-server.py
 !bin/install-dropbox.sh
+!bin/install-get-pip.sh
 !bin/install-ghcup.sh
 !bin/install-pandoc.sh
 !bin/install-rust-analyzer.sh
