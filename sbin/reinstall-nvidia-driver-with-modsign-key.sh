@@ -14,7 +14,7 @@ if [ -f "${NVIDIA_INSTALLER_PATH}" ]; then
         cp "${MODSIGN_KEY}" "${MODSIGN_KEY_BACKUP}"
         cp "${MODSIGN_PUBKEY}" "${MODSIGN_PUBKEY_BACKUP}"
 
-        "${NVIDIA_INSTALLER_PATH}" --no-install-compat32-libs --module-signing-secret-key="${MODSIGN_KEY}" --module-signing-public-key="${MODSIGN_PUBKEY}"
+        "${NVIDIA_INSTALLER_PATH}" --no-questions --no-install-compat32-libs --module-signing-secret-key="${MODSIGN_KEY}" --module-signing-public-key="${MODSIGN_PUBKEY}"
 
         if [ ! -f "${MODSIGN_KEY}" ]; then
             cp "${MODSIGN_KEY_BACKUP}" "${MODSIGN_KEY}"
