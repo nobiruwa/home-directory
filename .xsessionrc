@@ -20,14 +20,14 @@ sleep 5 && xset r rate 250 30 &
 # Make Caps Lock a Control key
 setxkbmap -layout us -option ctrl:nocaps
 
-if test -e $HOME/.xkb/modifier.xkb ; then
+if test -e $HOME/.xkb/modifier.xkb; then
     xkbcomp $HOME/.xkb/modifier.xkb $DISPLAY 2>&1 > /dev/null
 else
     echo "Ignore $HOME/.xkb/modifier.xkb..."
 fi
 
 # device speicific configuration
-if test -e $HOME/.xsession-local ; then
+if test -e $HOME/.xsession-local; then
     . $HOME/.xsession-local
 else
     echo "Ignore $HOME/.xsession-local..."
@@ -36,13 +36,13 @@ fi
 # $HOME/.dropbox-dist/dropboxd &
 
 # redshift-gtk
-if test -x "`command -v redshift-gtk`" ; then
+if test -x "`command -v redshift-gtk`"; then
     redshift-gtk &
 fi
 
 # Emacs
 # emacs-urxvt &
-if test -x "`command -v emacs`" ; then
+if test -x "`command -v emacs`"; then
     emacs &
 fi
 

@@ -4,13 +4,13 @@ fi
 export BASH_ENV_LOADED=t
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # android sdk configuration
 ANDROID_HOME="$HOME/opt/android-sdk-linux"
-if [ -d "$ANDROID_HOME" ] ; then
+if [ -d "$ANDROID_HOME" ]; then
     export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 fi
 
@@ -20,49 +20,49 @@ fi
 # (caution: $HOME does not work in .npmrc)
 NPM_HOME="$HOME/.node"
 NPM_BIN="$NPM_HOME/bin"
-if [ -d "$NPM_BIN" ] ; then
+if [ -d "$NPM_BIN" ]; then
     export PATH="$NPM_BIN:$PATH"
 fi
 
 # Cabal (Haskell packages)
 CABAL_HOME="$HOME/.cabal"
 CABAL_BIN="$CABAL_HOME/bin"
-if [ -d "$CABAL_BIN" ] ; then
+if [ -d "$CABAL_BIN" ]; then
     export PATH="$CABAL_BIN:$PATH"
 fi
 
 # GHCup (Haskell packages)
 GHCUP_HOME="$HOME/.ghcup"
 GHCUP_BIN="$GHCUP_HOME/bin"
-if [ -d "$GHCUP_BIN" ] ; then
+if [ -d "$GHCUP_BIN" ]; then
     export PATH="$GHCUP_BIN:$PATH"
 fi
 
 # XDG base directory configuration
 LOCAL_HOME="$HOME/.local"
 LOCAL_BIN="$LOCAL_HOME/bin"
-if [ -d "$LOCAL_BIN" ] ; then
+if [ -d "$LOCAL_BIN" ]; then
     export PATH="$LOCAL_BIN:$PATH"
 fi
 
 # maven directory configuration
 MAVEN_HOME="$HOME/opt/apache-maven"
 MAVEN_BIN="$MAVEN_HOME/bin"
-if [ -d "$MAVEN_BIN" ] ; then
+if [ -d "$MAVEN_BIN" ]; then
     export PATH="$MAVEN_BIN:$PATH"
 fi
 
 # gradle directory configuration
 GRADLE_HOME="$HOME/opt/gradle"
 GRADLE_BIN="$GRADLE_HOME/bin"
-if [ -d "$GRADLE_BIN" ] ; then
+if [ -d "$GRADLE_BIN" ]; then
     export PATH="$GRADLE_BIN:$PATH"
 fi
 
 # jEnv configuration
 JENV_HOME="$HOME/.jenv"
 JENV_BIN="$JENV_HOME/bin"
-if [ -d "$JENV_BIN" ] ; then
+if [ -d "$JENV_BIN" ]; then
     export PATH="$JENV_BIN:$PATH"
     # Oops. The following line does not seem to work, because my login shell is dash.
     # Speed up:
@@ -81,14 +81,14 @@ fi
 # etlas configuration
 ETLAS_HOME="$HOME/opt/etlas"
 ETLAS_BIN="$ETLAS_HOME/bin"
-if [ -d "$ETLAS_BIN" ] ; then
+if [ -d "$ETLAS_BIN" ]; then
     export PATH="$ETLAS_BIN:$PATH"
 fi
 
 # .NET Core SDK configuration
 DOTNET_HOME="$HOME/opt/dotnet-sdk"
 DOTNET_BIN="$DOTNET_HOME"
-if [ -d "$DOTNET_BIN" ] ; then
+if [ -d "$DOTNET_BIN" ]; then
     export PATH="$DOTNET_BIN:$PATH"
     # https://github.com/dotnet/corefx/pull/27208
     # https://github.com/dotnet/corefx/blob/master/src/Native/Unix/System.Security.Cryptography.Native/opensslshim.c
@@ -98,26 +98,26 @@ fi
 # Roswell configuration
 ROSWELL_HOME="$HOME/opt/roswell"
 ROSWELL_BIN="$ROSWELL_HOME/bin"
-if [ -d "$ROSWELL_BIN" ] ; then
+if [ -d "$ROSWELL_BIN" ]; then
     export PATH="$ROSWELL_BIN:$PATH"
 fi
 
 ROSWELL_LOCAL_HOME="$HOME/.roswell"
 ROSWELL_LOCAL_BIN="$ROSWELL_LOCAL_HOME/bin"
-if [ -d "$ROSWELL_LOCAL_BIN" ] ; then
+if [ -d "$ROSWELL_LOCAL_BIN" ]; then
     export PATH="$ROSWELL_LOCAL_BIN:$PATH"
 fi
 
 # Cargo configuration
 CARGO_HOME="$HOME/.cargo"
 CARGO_BIN="$CARGO_HOME/bin"
-if [ -d "$CARGO_BIN" ] ; then
+if [ -d "$CARGO_BIN" ]; then
     export PATH="$CARGO_BIN:$PATH"
 fi
 
 # set a wallpaper on awesome
 AWESOME_WALLPAPER="$HOME/.config/awesome/wallpaper.png"
-if [ -f "$AWESOME_WALLPAPER" ] ; then
+if [ -f "$AWESOME_WALLPAPER" ]; then
     export AWESOME_WALLPAPER
 fi
 
@@ -125,7 +125,7 @@ fi
 PEN_AIX_KEY="$HOME/.pen/aix_api_key"
 PEN_OPENAI_KEY="$HOME/.pen/openai_api_key"
 PEN_REPO="$HOME/repo/pen.el.git"
-if [ -f "$PEN_AIX_KEY" ] && [ -f "$PEN_OPENAI_KEY" ] && [ -d "$PEN_REPO" ] ; then
+if [ -f "$PEN_AIX_KEY" ] && [ -f "$PEN_OPENAI_KEY" ] && [ -d "$PEN_REPO" ]; then
     export PATH="$PATH:$PEN_REPO/scripts"
     # Add this to prevent C-s from freezing the terminal
     stty stop undef 2>/dev/null

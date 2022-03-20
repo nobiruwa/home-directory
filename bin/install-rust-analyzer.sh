@@ -2,7 +2,7 @@
 
 # https://rust-analyzer.github.io/manual.html#installation
 
-if command -v rustup &> /dev/null ; then
+if command -v rustup &> /dev/null; then
     rustup component add rust-src
 fi
 
