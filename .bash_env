@@ -14,14 +14,24 @@ if [ -d "$ANDROID_HOME" ]; then
     export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 fi
 
-# Node.js configuration
-# npm global package go to ~/.node,
-# not forget 'echo prefix=~/.node >> $HOME/.npmrc'
-# (caution: $HOME does not work in .npmrc)
-NPM_HOME="$HOME/.node"
-NPM_BIN="$NPM_HOME/bin"
-if [ -d "$NPM_BIN" ]; then
-    export PATH="$NPM_BIN:$PATH"
+# Node.js configuration (nodenv & node-build)
+# setup instructions:
+# $ git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
+#
+# after adding `$HOME/.nodenv/bin` to `$PATH` and `eval "$(nodenv init -)"`:
+#
+# $ mkdir -p "$(nodenv root)"/plugins
+# $ git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+# $ nodenv install --list
+# $ nodenv install xx.xx.xx
+# $ nodenv global xx.xx.xx
+NODENV_HOME="$HOME/.nodenv"
+NODENV_BIN="$NODENV_HOME/bin"
+if [ -d "$NODENV_BIN" ]; then
+    export PATH="$NODENV_BIN:$PATH"
+    # rehash after init, because my login shell is dash.
+    eval "$(nodenv init --no-rehash -)"
+    (nodenv rehash &) 2> /dev/null
 fi
 
 # Cabal (Haskell packages)
