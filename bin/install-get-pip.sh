@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-INSTALL_DIR="$HOME/bin"
-DESTINATION_PATH="${INSTALL_DIR}/get-pip.py"
+echo "Please use install-pyenv.sh instead."
+exit 0
 
-mkdir -p "${INSTALL_DIR}"
+# INSTALL_DIR="$HOME/bin"
+# DESTINATION_PATH="${INSTALL_DIR}/get-pip.py"
 
-wget https://bootstrap.pypa.io/get-pip.py -O "${DESTINATION_PATH}"
+# mkdir -p "${INSTALL_DIR}"
 
-chmod +x "${DESTINATION_PATH}"
+# wget https://bootstrap.pypa.io/get-pip.py -O "${DESTINATION_PATH}"
+
+# chmod +x "${DESTINATION_PATH}"

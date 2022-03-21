@@ -8,46 +8,6 @@ if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# android sdk configuration
-ANDROID_HOME="$HOME/opt/android-sdk-linux"
-if [ -d "$ANDROID_HOME" ]; then
-    export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
-fi
-
-# Node.js configuration (nodenv & node-build)
-# setup instructions:
-# $ git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
-#
-# after adding `$HOME/.nodenv/bin` to `$PATH` and `eval "$(nodenv init -)"`:
-#
-# $ mkdir -p "$(nodenv root)"/plugins
-# $ git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
-# $ nodenv install --list
-# $ nodenv install xx.xx.xx
-# $ nodenv global xx.xx.xx
-NODENV_HOME="$HOME/.nodenv"
-NODENV_BIN="$NODENV_HOME/bin"
-if [ -d "$NODENV_BIN" ]; then
-    export PATH="$NODENV_BIN:$PATH"
-    # rehash after init, because my login shell is dash.
-    eval "$(nodenv init --no-rehash -)"
-    (nodenv rehash &) 2> /dev/null
-fi
-
-# Cabal (Haskell packages)
-CABAL_HOME="$HOME/.cabal"
-CABAL_BIN="$CABAL_HOME/bin"
-if [ -d "$CABAL_BIN" ]; then
-    export PATH="$CABAL_BIN:$PATH"
-fi
-
-# GHCup (Haskell packages)
-GHCUP_HOME="$HOME/.ghcup"
-GHCUP_BIN="$GHCUP_HOME/bin"
-if [ -d "$GHCUP_BIN" ]; then
-    export PATH="$GHCUP_BIN:$PATH"
-fi
-
 # XDG base directory configuration
 LOCAL_HOME="$HOME/.local"
 LOCAL_BIN="$LOCAL_HOME/bin"
@@ -55,21 +15,70 @@ if [ -d "$LOCAL_BIN" ]; then
     export PATH="$LOCAL_BIN:$PATH"
 fi
 
-# maven directory configuration
+# programming environment configurations (alphabetical order)
+
+# Android configuration (Android SDK)
+ANDROID_HOME="$HOME/opt/android-sdk-linux"
+if [ -d "$ANDROID_HOME" ]; then
+    export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+fi
+
+# Common Lisp configuration (Roswell)
+ROSWELL_HOME="$HOME/opt/roswell"
+ROSWELL_BIN="$ROSWELL_HOME/bin"
+if [ -d "$ROSWELL_BIN" ]; then
+    export PATH="$ROSWELL_BIN:$PATH"
+fi
+
+ROSWELL_LOCAL_HOME="$HOME/.roswell"
+ROSWELL_LOCAL_BIN="$ROSWELL_LOCAL_HOME/bin"
+if [ -d "$ROSWELL_LOCAL_BIN" ]; then
+    export PATH="$ROSWELL_LOCAL_BIN:$PATH"
+fi
+
+# .NET configuration (.NET Core SDK)
+DOTNET_HOME="$HOME/opt/dotnet-sdk"
+DOTNET_BIN="$DOTNET_HOME"
+if [ -d "$DOTNET_BIN" ]; then
+    export PATH="$DOTNET_BIN:$PATH"
+    # https://github.com/dotnet/corefx/pull/27208
+    # https://github.com/dotnet/corefx/blob/master/src/Native/Unix/System.Security.Cryptography.Native/opensslshim.c
+    export CLR_OPENSSL_VERSION_OVERRIDE=1.1
+fi
+
+# Etlas configuration
+ETLAS_HOME="$HOME/opt/etlas"
+ETLAS_BIN="$ETLAS_HOME/bin"
+if [ -d "$ETLAS_BIN" ]; then
+    export PATH="$ETLAS_BIN:$PATH"
+fi
+
+# Haskell configuration (Cabal and GHCup)
+CABAL_HOME="$HOME/.cabal"
+CABAL_BIN="$CABAL_HOME/bin"
+if [ -d "$CABAL_BIN" ]; then
+    export PATH="$CABAL_BIN:$PATH"
+fi
+
+GHCUP_HOME="$HOME/.ghcup"
+GHCUP_BIN="$GHCUP_HOME/bin"
+if [ -d "$GHCUP_BIN" ]; then
+    export PATH="$GHCUP_BIN:$PATH"
+fi
+
+# Java configuration (Maven, Gradle and jEnv)
 MAVEN_HOME="$HOME/opt/apache-maven"
 MAVEN_BIN="$MAVEN_HOME/bin"
 if [ -d "$MAVEN_BIN" ]; then
     export PATH="$MAVEN_BIN:$PATH"
 fi
 
-# gradle directory configuration
 GRADLE_HOME="$HOME/opt/gradle"
 GRADLE_BIN="$GRADLE_HOME/bin"
 if [ -d "$GRADLE_BIN" ]; then
     export PATH="$GRADLE_BIN:$PATH"
 fi
 
-# jEnv configuration
 JENV_HOME="$HOME/.jenv"
 JENV_BIN="$JENV_HOME/bin"
 if [ -d "$JENV_BIN" ]; then
@@ -88,47 +97,14 @@ if [ -d "$JENV_BIN" ]; then
     # jenv rehash
 fi
 
-# etlas configuration
-ETLAS_HOME="$HOME/opt/etlas"
-ETLAS_BIN="$ETLAS_HOME/bin"
-if [ -d "$ETLAS_BIN" ]; then
-    export PATH="$ETLAS_BIN:$PATH"
-fi
-
-# .NET Core SDK configuration
-DOTNET_HOME="$HOME/opt/dotnet-sdk"
-DOTNET_BIN="$DOTNET_HOME"
-if [ -d "$DOTNET_BIN" ]; then
-    export PATH="$DOTNET_BIN:$PATH"
-    # https://github.com/dotnet/corefx/pull/27208
-    # https://github.com/dotnet/corefx/blob/master/src/Native/Unix/System.Security.Cryptography.Native/opensslshim.c
-    export CLR_OPENSSL_VERSION_OVERRIDE=1.1
-fi
-
-# Roswell configuration
-ROSWELL_HOME="$HOME/opt/roswell"
-ROSWELL_BIN="$ROSWELL_HOME/bin"
-if [ -d "$ROSWELL_BIN" ]; then
-    export PATH="$ROSWELL_BIN:$PATH"
-fi
-
-ROSWELL_LOCAL_HOME="$HOME/.roswell"
-ROSWELL_LOCAL_BIN="$ROSWELL_LOCAL_HOME/bin"
-if [ -d "$ROSWELL_LOCAL_BIN" ]; then
-    export PATH="$ROSWELL_LOCAL_BIN:$PATH"
-fi
-
-# Cargo configuration
-CARGO_HOME="$HOME/.cargo"
-CARGO_BIN="$CARGO_HOME/bin"
-if [ -d "$CARGO_BIN" ]; then
-    export PATH="$CARGO_BIN:$PATH"
-fi
-
-# set a wallpaper on awesome
-AWESOME_WALLPAPER="$HOME/.config/awesome/wallpaper.png"
-if [ -f "$AWESOME_WALLPAPER" ]; then
-    export AWESOME_WALLPAPER
+# Node.js configuration (nodenv & node-build)
+NODENV_HOME="$HOME/.nodenv"
+NODENV_BIN="$NODENV_HOME/bin"
+if [ -d "$NODENV_BIN" ]; then
+    export PATH="$NODENV_BIN:$PATH"
+    # rehash after init, because my login shell is dash.
+    eval "$(nodenv init --no-rehash -)"
+    (nodenv rehash &) 2> /dev/null
 fi
 
 # Pen configuration
@@ -140,6 +116,31 @@ if [ -f "$PEN_AIX_KEY" ] && [ -f "$PEN_OPENAI_KEY" ] && [ -d "$PEN_REPO" ]; then
     # Add this to prevent C-s from freezing the terminal
     stty stop undef 2>/dev/null
     stty start undef 2>/dev/null
+fi
+
+# Python configuration (pyenv & pyenv-viratualenv)
+PYENV_HOME="$HOME/.pyenv"
+PYENV_BIN="$PYENV_HOME/bin"
+if [ -d "$PYENV_BIN" ]; then
+    export PATH="$PYENV_BIN:$PATH"
+    # rehash after init, because my login shell is dash.
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init --no-rehash -)"
+    (pyenv rehash &) 2> /dev/null
+fi
+
+# Rust configuration (Cargo)
+CARGO_HOME="$HOME/.cargo"
+CARGO_BIN="$CARGO_HOME/bin"
+if [ -d "$CARGO_BIN" ]; then
+    export PATH="$CARGO_BIN:$PATH"
+fi
+
+# Window manager configuration (Awesome)
+# set a wallpaper on awesome
+AWESOME_WALLPAPER="$HOME/.config/awesome/wallpaper.png"
+if [ -f "$AWESOME_WALLPAPER" ]; then
+    export AWESOME_WALLPAPER
 fi
 
 # locale

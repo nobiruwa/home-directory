@@ -17,6 +17,7 @@
 !bin/install-ghcup.sh
 !bin/install-nodenv.sh
 !bin/install-pandoc.sh
+!bin/install-pyenv.sh
 !bin/install-rust-analyzer.sh
 !bin/install-rustup.sh
 !bin/livereload-server.py
