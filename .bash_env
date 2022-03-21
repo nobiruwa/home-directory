@@ -83,18 +83,9 @@ JENV_HOME="$HOME/.jenv"
 JENV_BIN="$JENV_HOME/bin"
 if [ -d "$JENV_BIN" ]; then
     export PATH="$JENV_BIN:$PATH"
-    # Oops. The following line does not seem to work, because my login shell is dash.
-    # Speed up:
-    # https://github.com/jenv/jenv/issues/178#issuecomment-388996995
+    # rehash after init, because my login shell is dash.
     eval "$(jenv init --no-rehash -)"
     (jenv rehash &) 2> /dev/null
-    # https://github.com/jenv/jenv/issues/44#issuecomment-39356954
-    # execute beforehand: jenv add <JDK Path> && jenv global <version-name>
-    # then, execute the following commands.
-    # # jenv sh-enable-plugin export # I don't use this. It makes every prompt very slow.
-    # jenv sh-enable-plugin maven
-    # jenv sh-enable-plugin gradle
-    # jenv rehash
 fi
 
 # Node.js configuration (nodenv & node-build)

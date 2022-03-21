@@ -9,4 +9,5 @@ NODENV_BIN="$NODENV_HOME/bin"
 PATH="$NODENV_BIN:$PATH"
 eval "$(nodenv init -)"
 
+mkdir -p $(nodenv root)/plugins
 git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
