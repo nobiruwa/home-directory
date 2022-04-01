@@ -15,6 +15,7 @@
 !bin/install-dropbox.sh
 !bin/install-get-pip.sh
 !bin/install-ghcup.sh
+!bin/install-jenv.sh
 !bin/install-nodenv.sh
 !bin/install-pandoc.sh
 !bin/install-pyenv.sh
