@@ -71,6 +71,7 @@
 !repo/nobiruwa.github/rebaseall.sh
 
 !sbin
+!sbin/connect-softether.sh
 !sbin/detect-sysfs-e130.sh
 !sbin/get-backlight_thinkpad-e130.sh
 !sbin/powersave-e130.sh
