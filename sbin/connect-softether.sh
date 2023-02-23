@@ -36,6 +36,7 @@ fi
 VIRTUAL_DEVICE_NAME="vpn_vpn0"
 IP_ADDRESS="192.168.30.2/24"
 IP_DEFAULT_GATEWAY="192.168.30.2"
+IP_DEFAULT_ROUTE="192.168.30.2/24"
 
 IP_ADDR=`ip -o -4 addr list "${VIRTUAL_DEVICE_NAME}"`
 
@@ -43,5 +44,5 @@ if [[ "${IP_ADDR}" == *"${IP_ADDRESS}"* ]]; then
     echo "Skip to set an IP address, because the device has already had the IP address."
 else
     ip addr add "${IP_ADDRESS}" dev "${VIRTUAL_DEVICE_NAME}"
-    ip route add "${IP_ADDRESS}" via "${IP_DEFAULT_GATEWAY}" dev "${VIRTUAL_DEVICE_NAME}"
+    ip route add "${IP_DEFAULT_ROUTE}" via "${IP_DEFAULT_GATEWAY}" dev "${VIRTUAL_DEVICE_NAME}"
 fi
