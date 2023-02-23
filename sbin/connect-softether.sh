@@ -9,7 +9,7 @@ fi
 # softeher-vpnclientが起動済みでない場合はただちに終了します
 VPNCLIENT_RUNNING=$(systemctl is-active --quiet softether-vpnclient)
 
-if ! VPNCLIENT_RUNNING; then
+if [ ${VPNCLIENT_RUNNING} -ne 0 ]; then
     echo "Cannot execute, because softehter-vpnclient is not running."
     exit 1
 fi
