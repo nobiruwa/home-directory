@@ -1,11 +1,11 @@
 *
 
 !.antrc
-!.bash_aliases
-!.bash_env
+!.bash_aliases_nobiruwa
+!.bash_env_nobiruwa
 !.bash_logout
 !.bash_profile
-!.bashrc
+!.bashrc_nobiruwa
 
 !bin
 !bin/change-gitserver.sh
