@@ -53,6 +53,15 @@ if [ -d "$ETLAS_BIN" ]; then
     export PATH="$ETLAS_BIN:$PATH"
 fi
 
+# Go configuration
+GOENV_HOME="$HOME/.goenv"
+GOENV_BIN="$GOENV_HOME/bin"
+if [ -d "$GOENV_BIN" ]; then
+    export PATH="$GOENV_BIN:$PATH"
+    eval "$(goenv init --no-rehash -)"
+    (goenv rehash &) 2> /dev/null
+fi
+
 # Haskell configuration (Cabal and GHCup)
 CABAL_HOME="$HOME/.cabal"
 CABAL_BIN="$CABAL_HOME/bin"
