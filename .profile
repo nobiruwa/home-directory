@@ -15,6 +15,3 @@ if [ -n "$BASH_VERSION" ]; then
         . "$HOME/.bashrc"
     fi
 fi
-
-# set environment variables
-. $HOME/.bash_env
