@@ -3,18 +3,6 @@ if [[ -v "BASH_ENV_LOADED" ]]; then
 fi
 export BASH_ENV_LOADED=t
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# XDG base directory configuration
-LOCAL_HOME="$HOME/.local"
-LOCAL_BIN="$LOCAL_HOME/bin"
-if [ -d "$LOCAL_BIN" ]; then
-    export PATH="$LOCAL_BIN:$PATH"
-fi
-
 # programming environment configurations (alphabetical order)
 
 # Android configuration (Android SDK)
@@ -134,6 +122,20 @@ CARGO_HOME="$HOME/.cargo"
 CARGO_BIN="$CARGO_HOME/bin"
 if [ -d "$CARGO_BIN" ]; then
     export PATH="$CARGO_BIN:$PATH"
+fi
+
+# $HOME/bin, $HOME/.local/bin precede other directories.
+
+# XDG base directory configuration
+LOCAL_HOME="$HOME/.local"
+LOCAL_BIN="$LOCAL_HOME/bin"
+if [ -d "$LOCAL_BIN" ]; then
+    export PATH="$LOCAL_BIN:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
 fi
 
 # Window manager configuration (Awesome)
