@@ -8,7 +8,8 @@ export BASH_ENV_LOADED=t
 # Android configuration (Android SDK)
 ANDROID_HOME="$HOME/opt/android-sdk-linux"
 if [ -d "$ANDROID_HOME" ]; then
-    export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+    export ANDROID_HOME
+    export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/tools:$PATH"
 fi
 
 # Common Lisp configuration (Roswell)
