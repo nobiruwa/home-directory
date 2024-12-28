@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Prequisists:
+# You need to execute `mokutil -i ${MODSIGN_KEY}`,
+# and input temporary password twice.
+# Then reboot and enroll ${MODISIGN_KEY}.
+# References:
+# https://rodsbooks.com/efi-bootloaders/secureboot.html#mokutil
+
 NVIDIA_INSTALLER=$1
 NVIDIA_INSTALLER_PATH=`readlink -f "${NVIDIA_INSTALLER}"`
 
