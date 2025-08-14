@@ -76,14 +76,12 @@
 !repo/nobiruwa.github/rebaseall.sh
 
 !sbin
-!sbin/connect-softether.sh
 !sbin/detect-sysfs-e130.sh
 !sbin/get-backlight_thinkpad-e130.sh
 !sbin/powersave-e130.sh
 !sbin/powersave-ethernet.sh
 !sbin/reinstall-nvidia-driver-with-modsign-key.sh
 !sbin/set-backlight_thinkpad-e130.sh
-!sbin/stop-ethernet.sh
 
 !.xkb
 !.xkb/loadxkb.sh
