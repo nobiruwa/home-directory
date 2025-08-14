@@ -26,6 +26,8 @@
 !bin/install-rustup.sh
 !bin/livereload-server.py
 !bin/open-jtalk.py
+!bin/softether-start.sh
+!bin/softether-stop.sh
 !bin/start-dropbox.sh
 !bin/xset-screen.py
 
