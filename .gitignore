@@ -15,6 +15,7 @@
 !bin/eslint-cygwin.sh
 !bin/global-address.sh
 !bin/http-server.py
+!bin/install-awscli.sh
 !bin/install-dropbox.sh
 !bin/install-get-pip.sh
 !bin/install-ghcup.sh
