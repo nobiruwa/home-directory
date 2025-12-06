@@ -11,6 +11,7 @@
 !bin/change-gitserver.sh
 !bin/display-dp1.sh
 !bin/display-viera.sh
+!bin/download-nvidia-unix-driver.py
 !bin/emacs-urxvt
 !bin/eslint-cygwin.sh
 !bin/global-address.sh
