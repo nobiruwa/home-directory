@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+import os
 import re
+import stat
 import urllib.request
 
 from html.parser import HTMLParser
+from pathlib import Path
+from warnings import deprecated
 
 
 def retrieve(url):
@@ -111,6 +115,7 @@ class LatestVersionDetector():
 class Downloader():
     base_url = 'https://download.nvidia.com/XFree86/Linux-x86_64/'
 
+    @deprecated("Use LatestVersionDetector().find_latest_production_branch_version().")
     def detect_latest_driver_url(self):
         latest_txt_url = f'{self.base_url}latest.txt'
         response = retrieve(latest_txt_url)
@@ -124,15 +129,27 @@ class Downloader():
 
         return (name, f'{self.base_url}{relative_path}')
 
+    def downloaded(self, name):
+        return Path(name).is_file()
+
     def download(self):
         version = LatestVersionDetector().find_latest_production_branch_version()
 
         if not version:
             raise Exception('cannot find latest version.')
 
-        # ex) https://us.download.nvidia.com/XFree86/Linux-x86_64/595.84/NVIDIA-Linux-x86_64-595.84.run
+        # ex) https://download.nvidia.com/XFree86/Linux-x86_64/595.84/NVIDIA-Linux-x86_64-595.84.run
         name = f'NVIDIA-Linux-x86_64-{version}.run'
+
+        print(f'The latest version is {name}.')
+
+        if self.downloaded(name):
+            print(f'{name} already exists.')
+            return
+
         url = f'{self.base_url}{version}/{name}'
+
+        print(f'downloading...')
 
         response = retrieve(url)
 
@@ -142,7 +159,10 @@ class Downloader():
         with open(name, 'wb') as inf:
             inf.write(response['content'])
 
-        print(f'downloaded {name}')
+        mode = os.stat(name).st_mode
+        os.chmod(name, mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+
+        print(f'downloaded {name}.')
 
 
 def main():
