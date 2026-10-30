@@ -107,15 +107,12 @@ if [ -f "$PEN_AIX_KEY" ] && [ -f "$PEN_OPENAI_KEY" ] && [ -d "$PEN_REPO" ]; then
     stty start undef 2>/dev/null
 fi
 
-# Python configuration (pyenv & pyenv-viratualenv)
-PYENV_HOME="$HOME/.pyenv"
-PYENV_BIN="$PYENV_HOME/bin"
-if [ -d "$PYENV_BIN" ]; then
-    export PATH="$PYENV_BIN:$PATH"
-    # rehash after init, because my login shell is dash.
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init --no-rehash -)"
-    (pyenv rehash &) 2> /dev/null
+# Python configuration (uv)
+UV_GLOBAL_HOME="$HOME/.venvs/global"
+UV_GLOBAL_BIN="$UV_GLOBAL_HOME/bin"
+if [ -d "$UV_GLOBAL_BIN" ]; then
+    export PATH="$UV_GLOBAL_BIN:$PATH"
+    export UV_PROJECT_ENVIRONMENT="$UV_GLOBAL_BIN"
 fi
 
 # Rust configuration (Cargo)
